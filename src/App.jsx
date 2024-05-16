@@ -9,7 +9,7 @@ import SchoolSearch from "./SchoolSearch";
 const App = () => {
   const [schools, setSchools] = useState([]);
 
-  const URL = import.meta.env.VITE_BASE_URL;
+  const URL = `${import.meta.env.VITE_BASE_URL}?$limit=1500`;
 
   useEffect(() => {
     fetch(URL)
@@ -22,7 +22,7 @@ const App = () => {
       <Nav />
       <Routes>
         <Route path="/" element={<LandingPage />} />
-        <Route path="/schools" element={<SchoolListing />} />
+        <Route path="/schools" element={<SchoolListing schools={schools} />} />
         <Route path="/schools/:id" element={<SchoolDetails />} />
         <Route path="/find" element={<SchoolSearch />}/>
       </Routes>
