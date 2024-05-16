@@ -7,20 +7,20 @@ const SchoolListing = ({ schools }) => {
     <div className="grid grid-cols-3 gap-8 m-8">
       {schools.map((school, index) => (
         <div
-          className="rounded-lg border-2 border-black bg-ghost-white font-semibold"
+          className="rounded-lg border-2 border-black bg-ghost-white font-semibold h-full flex flex-col"
           key={index}
         >
-          <div className="flex flex-col">
+          <div className="flex-grow">
             <p className="text-center p-1">{school.school}</p>
             <p className="text-center p-1">{school.school_level_}</p>
             <p className="text-center p-1">
               {districtToBorough(school.district)}
             </p>
-            <div className="flex justify-end bg-paynes-gray">
-              <button className="m-2 p-1 border-2 border-black bg-light-blue rounded-lg hover:font-extrabold">
-                <Link to={`/schools/${index}`}>View Details...</Link>
-              </button>
-            </div>
+          </div>
+          <div className="flex justify-end bg-paynes-gray">
+            <button className="m-2 p-1 border-2 border-black bg-light-blue rounded-lg hover:font-extrabold">
+              <Link to={`/schools/${index}`}>View Details...</Link>
+            </button>
           </div>
         </div>
       ))}
