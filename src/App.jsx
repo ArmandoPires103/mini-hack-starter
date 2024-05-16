@@ -4,6 +4,7 @@ import Nav from "./Nav";
 import LandingPage from "./LandingPage";
 import SchoolListing from "./SchoolListing";
 import SchoolDetails from "./SchoolDetails";
+import SchoolSearch from "./SchoolSearch";
 
 const App = () => {
   const [schools, setSchools] = useState([]);
@@ -23,6 +24,7 @@ const App = () => {
         <Route path="/" element={<LandingPage />} />
         <Route path="/schools" element={<SchoolListing schools={schools} />} />
         <Route path="/schools/:id" element={<SchoolDetails />} />
+        <Route path="/find" element={<SchoolSearch />}/>
       </Routes>
     </div>
   );
