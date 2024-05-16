@@ -8,7 +8,7 @@ import SchoolDetails from "./SchoolDetails";
 const App = () => {
   const [schools, setSchools] = useState([]);
 
-  const URL = import.meta.env.VITE_BASE_URL;
+  const URL = `${import.meta.env.VITE_BASE_URL}?$limit=1500`;
 
   useEffect(() => {
     fetch(URL)
