@@ -21,7 +21,7 @@ const App = () => {
       <Nav />
       <Routes>
         <Route path="/" element={<LandingPage />} />
-        <Route path="/schools" element={<SchoolListing />} />
+        <Route path="/schools" element={<SchoolListing schools={schools} />} />
         <Route path="/schools/:id" element={<SchoolDetails />} />
       </Routes>
     </div>
