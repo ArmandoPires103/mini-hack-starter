@@ -31,7 +31,7 @@ import {useState, useEffect} from "react";
   
  
   return(
-    <div className="search-container p-4">
+    <div className="search-container p-4 h-screen">
     <h1 className="text-center ">Find a Individual School</h1>
        <input 
          type="text"
