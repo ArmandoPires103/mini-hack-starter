@@ -5,6 +5,7 @@ import LandingPage from "./LandingPage";
 import SchoolListing from "./SchoolListing";
 import SchoolDetails from "./SchoolDetails";
 import SchoolSearch from "./SchoolSearch";
+import Footer from "./Footer";
 
 const App = () => {
   // const [schools, setSchools] = useState([]);
@@ -28,6 +29,7 @@ const App = () => {
         <Route path="/schools/:name" element={<SchoolDetails />} />
         <Route path="/find" element={<SchoolSearch />} />
       </Routes>
+      <Footer />
     </div>
   );
 };
