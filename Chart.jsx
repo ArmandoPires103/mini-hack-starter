@@ -1,15 +1,13 @@
 import React from 'react';
-import { PolarArea } from 'react-chartjs-2';
-import {Chart as ChartJS, RadialLinearScale, ArcElement, Tooltip, Legend,} from 'chart.js';
+import { Pie} from 'react-chartjs-2';
+import {Chart as ChartJS, ArcElement, Tooltip, Legend,} from 'chart.js';
 // Chart is the main chart object.
 // RadialLinearScale is the plotdata around the circles.
 // ArcElment is the element used to draw the segments in PolarArea Charts.
 // Tooltip and Legend are plugins is the hover effect for the chart.
 
-
 // Register the components to make it work.
 ChartJS.register(
-  RadialLinearScale,
   ArcElement,
   Tooltip,
   Legend
@@ -39,11 +37,11 @@ const Chart = ({ scores }) => {
     ]
   };
 
-  return (
+return (
     <div>
       <h2>Score Polar Area Chart</h2>
       <div style={{ width: '500px', height: '500px' }}>
-        <PolarArea data={chartData} />
+        <Pie data={chartData} />
       </div>
     </div>
   );
