@@ -40,16 +40,21 @@ import {useState, useEffect} from "react";
          placeholder="Search for a School..."
          className="border border-gray-300 p-2 w-full mb-4"
        />
-       <div>
-        <ul>
+       <div > 
+         {!searchTerm ? (
+          <h2>Please enter a School ...</h2>
+         ) : (
+          <ul>
           {filteredData.map((school, id) => ( 
             <li key={id}>
               <h2>{school.school}</h2>
               <p>Principal:{school.principal}</p>
-              <p>Grade: {school._overall_grade}</p>
+              <p>Grade Level: {school.school_level_}</p>
+              <p>Overall Rating: {school._overall_grade}</p>
             </li>
           ))}
         </ul>
+         )}
        </div>
     </div>
   )
