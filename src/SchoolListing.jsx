@@ -18,7 +18,7 @@ const SchoolListing = ({ schools }) => {
             </p>
             <div className="flex justify-end bg-paynes-gray">
               <button className="m-2 p-1 border-2 border-black bg-light-blue rounded-lg hover:font-extrabold">
-                <Link to={`/schools/${index}`}>View Details...</Link>
+                <Link to={`/schools/${school.school}`}>View Details...</Link>
               </button>
             </div>
           </div>
