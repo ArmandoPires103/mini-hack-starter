@@ -1,18 +1,45 @@
 import React from "react";
 import { useState } from "react";
+import { districtToBorough } from "../helper";
 
-const BoroughFilter = ({ schools, setSchools }) => {
+const BoroughFilter = ({
+  schools,
+  setSchools,
+  selectedSchools,
+  setSelectedSchools,
+}) => {
+  const [selectedBorough, setSelectedBorough] = useState("");
+
+  // const originalSchools = schools;
+  // console.log(originalSchools);
+
   function filterBasedOnBorough(event) {
     const values = event.target.value.split(",").map(Number);
+    const borough = districtToBorough(values[0]);
+    setSelectedBorough(borough);
     const filteredSchools = schools.filter((school) =>
       values.includes(+school.district)
     );
-    setSchools(filteredSchools);
+    console.log(filteredSchools);
+    setSelectedSchools(filteredSchools);
+  }
+
+  function removeFilteredBorough() {
+    setSelectedBorough("");
+    setSelectedSchools(schools);
   }
 
   return (
     <div className="text-center h-fit border-2 border-black mx-4 p-4 rounded-lg">
       <h1 className="font-bold">Filter By Borough:</h1>
+      {selectedBorough && (
+        <button
+          onClick={removeFilteredBorough}
+          className="border-2 border-black m-2 p-1 rounded-lg"
+        >
+          {`${selectedBorough}❌`}
+        </button>
+      )}
       <div className="flex flex-col">
         <button
           className=" border-2 border-black m-2 p-1 rounded-lg"
