@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Chart from "../Chart";
 import Modal from "./Modal";
 
@@ -8,20 +8,46 @@ const SchoolDetails = ({ schools }) => {
   const { name } = useParams();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [comparisonSchool, setComparisonSchool] = useState(null);
+  const [singleSchool, setSingleSchool] = useState([]);
+  const [loading, setLoading] = useState(true); 
+  const [error, setError] = useState(null);
   
+  useEffect(() => {
+    const fetchSchool = async () => {
+      try {
+        const response = await fetch(`https://data.cityofnewyork.us/resource/ffnc-f3aa.json?$limit=1500`); 
+        if (!response.ok) {
+          throw new Error('Failed to fetch school');
+        }
+        const data = await response.json();
+        setSingleSchool(data);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchSchool();
+  }, [name]); 
+
   const decodedName = decodeURIComponent(name);
-  
-  if (!schools || schools.length === 0) {
+
+  if (loading) {
     return <div>Loading...</div>;
   }
 
-  const filteredSchools = schools.filter(school => school.school === decodedName);
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
+
+  const filteredSchools = singleSchool.filter(school => school.school === decodedName);
 
   if (filteredSchools.length === 0) {
     return <div>School not found</div>;
   }
 
   const school = filteredSchools[0];
+
   const scores = [
     school._overall_score,
     school._environment_category_score,
@@ -47,7 +73,7 @@ const SchoolDetails = ({ schools }) => {
       </div>
       {isModalOpen && (
         <Modal
-          schools={schools}
+          singleschool={singleSchool}
           onSelect={handleCompare}
           onClose={() => setIsModalOpen(false)}
         />
