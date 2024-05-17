@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { districtToBorough } from "../helper";
+import { X } from "lucide-react";
 
 const BoroughFilter = ({
   schools,
@@ -33,12 +34,14 @@ const BoroughFilter = ({
     <div className="text-center h-fit border-2 border-black mx-4 p-4 rounded-lg bg-ghost-white">
       <h1 className="font-bold">Filter By Borough:</h1>
       {selectedBorough && (
-        <button
-          onClick={removeFilteredBorough}
-          className="border-2 border-black m-2 p-1 rounded-lg bg-light-blue"
-        >
-          {`${selectedBorough}❌`}
-        </button>
+        <div className="">
+          <button
+            onClick={removeFilteredBorough}
+            className="border-2 border-black m-2 p-1 rounded-lg bg-light-blue"
+          >
+            {`${selectedBorough}X`}
+          </button>
+        </div>
       )}
       <div className="flex flex-col">
         <button
