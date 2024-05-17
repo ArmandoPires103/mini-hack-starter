@@ -7,26 +7,26 @@ import SchoolDetails from "./SchoolDetails";
 import SchoolSearch from "./SchoolSearch";
 
 const App = () => {
-  const [schools, setSchools] = useState([]);
+  // const [schools, setSchools] = useState([]);
 
-  const URL = `${import.meta.env.VITE_BASE_URL}?$limit=1500`;
+  // const URL = `${import.meta.env.VITE_BASE_URL}?$limit=1500`;
 
-  useEffect(() => {
-    fetch(URL)
-      .then((res) => res.json())
-      .then((data) => {
-        setSchools(data);
-      });
-  }, []);
+  // useEffect(() => {
+  //   fetch(URL)
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       setSchools(data);
+  //     });
+  // }, []);
 
   return (
     <div>
       <Nav />
       <Routes>
         <Route path="/" element={<LandingPage />} />
-        <Route path="/schools" element={<SchoolListing schools={schools} setSchools={setSchools}/>} />
-        <Route path="/schools/:name" element={<SchoolDetails schools={schools} />} />
-        <Route path="/find" element={<SchoolSearch />}/>
+        <Route path="/schools" element={<SchoolListing />} />
+        <Route path="/schools/:name" element={<SchoolDetails />} />
+        <Route path="/find" element={<SchoolSearch />} />
       </Routes>
     </div>
   );
