@@ -29,6 +29,7 @@ const SchoolDetails = ({ schools }) => {
     };
     fetchSchool();
   }, [name]); 
+  console.log(singleSchool)
 
   const decodedName = decodeURIComponent(name);
 
@@ -41,6 +42,7 @@ const SchoolDetails = ({ schools }) => {
   }
 
   const filteredSchools = singleSchool.filter(school => school.school === decodedName);
+  console.log(filteredSchools)
 
   if (filteredSchools.length === 0) {
     return <div>School not found</div>;
@@ -73,7 +75,7 @@ const SchoolDetails = ({ schools }) => {
       </div>
       {isModalOpen && (
         <Modal
-          singleschool={singleSchool}
+          schools={singleSchool}
           onSelect={handleCompare}
           onClose={() => setIsModalOpen(false)}
         />
