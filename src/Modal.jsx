@@ -1,17 +1,17 @@
 import React from 'react'
 import "./Modal.css"
 
-const Modal = ({ schools, onSelect, onClose }) => {
+const Modal = ({ singleSchool, onSelect, onClose }) => {
     return (
       <div className="modal">
         <div className="modal-content">
           <span className="close" onClick={onClose}>&times;</span>
           <h2>Select a School to Compare</h2>
           <ul>
-            {schools.map((school, index) => (
+            {singleSchool.map((singleSchool, index) => (
               <li key={index}>
-                <button onClick={() => onSelect(school)}>
-                  {school.school}
+                <button onClick={() => onSelect(singleSchool)}>
+                  {singleSchool.school}
                 </button>
               </li>
             ))}
