@@ -14,7 +14,9 @@ const App = () => {
   useEffect(() => {
     fetch(URL)
       .then((res) => res.json())
-      .then((data) => setSchools(data));
+      .then((data) => {
+        setSchools(data);
+      });
   }, []);
 
   return (
@@ -22,7 +24,7 @@ const App = () => {
       <Nav />
       <Routes>
         <Route path="/" element={<LandingPage />} />
-        <Route path="/schools" element={<SchoolListing schools={schools} />} />
+        <Route path="/schools" element={<SchoolListing schools={schools} setSchools={setSchools}/>} />
         <Route path="/schools/:name" element={<SchoolDetails schools={schools} />} />
         <Route path="/find" element={<SchoolSearch />}/>
       </Routes>
