@@ -24,12 +24,9 @@ const App = () => {
       <Nav />
       <Routes>
         <Route path="/" element={<LandingPage />} />
-        <Route
-          path="/schools"
-          element={<SchoolListing schools={schools} setSchools={setSchools} />}
-        />
-        <Route path="/schools/:id" element={<SchoolDetails />} />
-        <Route path="/find" element={<SchoolSearch />} />
+        <Route path="/schools" element={<SchoolListing schools={schools} setSchools={setSchools}/>} />
+        <Route path="/schools/:name" element={<SchoolDetails schools={schools} />} />
+        <Route path="/find" element={<SchoolSearch />}/>
       </Routes>
     </div>
   );
