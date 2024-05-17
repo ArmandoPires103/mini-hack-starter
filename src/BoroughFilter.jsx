@@ -20,7 +20,7 @@ const BoroughFilter = ({
     const filteredSchools = schools.filter((school) =>
       values.includes(+school.district)
     );
-    console.log(filteredSchools);
+    // console.log(filteredSchools);
     setSelectedSchools(filteredSchools);
   }
 
