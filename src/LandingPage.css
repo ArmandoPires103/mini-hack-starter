@@ -1,0 +1,70 @@
+/* Landing.css */
+
+.container {
+    font-family: Arial, sans-serif;
+    color: #333;
+    text-align: center;
+    /* padding: 0 20px; */
+  }
+  
+  .hero {
+    background-image: url('https://res.cloudinary.com/dhexjuuzd/image/upload/v1716012287/images_7_f1olxk.jpg');
+    background-position: center;
+    color: black;
+    padding: 100px 60px;
+    width: 100vw;
+  }
+  
+  .heroTitle {
+    font-size: 48px;
+    margin: 0 0 20px;
+  }
+  
+  .heroSubtitle {
+    font-size: 24px;
+    margin: 0 0 40px;
+    color: #000000; /* Adjust color for better contrast */
+}
+  
+  .ctaButton {
+    background-color: #030303;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 15px 30px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .features {
+    display: flex;
+    justify-content: space-around;
+    padding: 50px 0;
+  }
+  
+  .feature {
+    max-width: 500px;
+    text-align: center;
+  }
+  
+  .featureTitle {
+    font-size: 20px;
+    margin: 0 10px 10px;
+    padding-left: 380px;
+  }
+  
+  .featureDescription {
+    font-size: 16px;
+    padding-left: 380px;
+  }
+  
+  .callToAction {
+    background-color: #f4f4f4;
+    padding: 50px 20px;
+  }
+  
+  .callToActionTitle {
+    font-size: 32px;
+    margin: 0 0 20px;
+  }
+  
