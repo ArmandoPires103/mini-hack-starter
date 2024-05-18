@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Chart from "../Chart";
 import Modal from "./Modal";
+import { districtToBorough } from '../helper';
 
 const SchoolDetails = ({ schools }) => {
   const { name } = useParams();
@@ -61,18 +62,75 @@ const SchoolDetails = ({ schools }) => {
     setComparisonSchool(selectedSchool);
     setIsModalOpen(false);
   };
+  const removeComparisonSchool = () => {
+    handleCompare(null);
+  }
 
   return (
     <div>
-      <div style={{ border: '1px solid black', margin: '10px', padding: '10px' }}>
-        <h2>{school.school}</h2>
-        <p><strong>Principal:</strong> {school.principal}</p>
-        <p><strong>School Level:</strong> {school.school_level_}</p>
-        <p><strong>District:</strong> {school.district}</p>
-        <p><strong>Overall Grade:</strong> {school._overall_grade}</p>
-        <Chart scores={scores} />
-        <button onClick={() => setIsModalOpen(true)}>Compare</button>
+
+      {/* School details */}
+      <div style={{ display: 'flex', gap: '20px' }}>
+        <div style={{ border: '1px solid black', margin: '10px', padding: '10px', flex: '1' }}>
+          <h2>{school.school}</h2>
+          <p><strong>Principal:</strong> {school.principal}</p>
+          <p><strong>School Level:</strong> {school.school_level_}</p>
+          <p><strong>Borough:</strong> {districtToBorough(school.district)}</p>
+          <p><strong>Overall Grade:</strong> {school._overall_grade}</p>
+          <Chart scores={scores} />
+        {/* Compare button below the nav bar */}
+          <div style={{ margin: '10px', paddingLeft: '10px', }}>
+          <button 
+            style={{
+            padding: '10px 20px',
+            backgroundColor: 'black',
+            color: '#fff',
+            border: 'none',
+            borderRadius: '5px',
+            cursor: 'pointer',
+            fontSize: '16px',
+            fontWeight: 'bold'
+            }}
+            onClick={() => setIsModalOpen(true)}
+            >
+             Compare
+            </button>
+          </div>
+        </div>
+        {comparisonSchool && (
+          <div style={{ border: '1px solid black', margin: '10px', padding: '10px', flex: '1' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <h2>{comparisonSchool.school}</h2>
+              <button 
+                style={{ 
+                  background: 'black', 
+                  color: 'white', 
+                  border: 'none', 
+                  borderRadius: '50%', 
+                  cursor: 'pointer' 
+                }} 
+                onClick={removeComparisonSchool}
+              >
+                X
+              </button>
+            </div>
+            <p><strong>Principal:</strong> {comparisonSchool.principal}</p>
+            <p><strong>School Level:</strong> {comparisonSchool.school_level_}</p>
+            <p><strong>Borough:</strong> {districtToBorough(comparisonSchool.district)}</p>
+            <p><strong>Overall Grade:</strong> {comparisonSchool._overall_grade}</p>
+            <Chart
+              scores={[
+                comparisonSchool._overall_score,
+                comparisonSchool._environment_category_score,
+                comparisonSchool._performance_category_score,
+                comparisonSchool._progress_category_score
+              ]}
+            />
+          </div>
+        )}
       </div>
+
+      {/* Modal for selecting schools to compare */}
       {isModalOpen && (
         <Modal
           schools={singleSchool}
@@ -80,26 +138,9 @@ const SchoolDetails = ({ schools }) => {
           onClose={() => setIsModalOpen(false)}
         />
       )}
-      {comparisonSchool && (
-        <div style={{ border: '1px solid black', margin: '10px', padding: '10px' }}>
-          <h2>{comparisonSchool.school}</h2>
-          <p><strong>Principal:</strong> {comparisonSchool.principal}</p>
-          <p><strong>School Level:</strong> {comparisonSchool.school_level_}</p>
-          <p><strong>District:</strong> {comparisonSchool.district}</p>
-          <p><strong>Overall Grade:</strong> {comparisonSchool._overall_grade}</p>
-          <Chart
-            scores={[
-              comparisonSchool._overall_score,
-              comparisonSchool._environment_category_score,
-              comparisonSchool._performance_category_score,
-              comparisonSchool._progress_category_score
-            ]}
-          />
-        </div>
-      )}
     </div>
+    
   );
 };
 
 export default SchoolDetails;
-
