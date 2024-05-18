@@ -34,12 +34,11 @@ const BoroughFilter = ({
     <div className="text-center h-fit border-2 border-black mx-4 p-4 rounded-lg bg-ghost-white">
       <h1 className="font-bold">Filter By Borough:</h1>
       {selectedBorough && (
-        <div className="">
-          <button
-            onClick={removeFilteredBorough}
-            className="border-2 border-black m-2 p-1 rounded-lg bg-light-blue"
-          >
-            {`${selectedBorough}X`}
+        <div className="flex justify-center items-center">
+          <h1 className="font-bold">Current Filter: </h1>
+          <button className="border-2 border-black m-2 p-1 rounded-lg flex items-center bg-light-blue">
+            {`${selectedBorough}`}
+            <X onClick={removeFilteredBorough} className="text-paynes-gray" />
           </button>
         </div>
       )}
