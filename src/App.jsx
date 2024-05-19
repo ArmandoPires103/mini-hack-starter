@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Route, Routes, Router } from "react-router-dom";
+import React from "react";
+import { Route, Routes } from "react-router-dom";
 import Nav from "./Nav";
 import LandingPage from "./LandingPage";
 import SchoolListing from "./SchoolListing";
@@ -8,27 +8,17 @@ import SchoolSearch from "./SchoolSearch";
 import Footer from "./Footer";
 
 const App = () => {
-  // const [schools, setSchools] = useState([]);
-
-  // const URL = `${import.meta.env.VITE_BASE_URL}?$limit=1500`;
-
-  // useEffect(() => {
-  //   fetch(URL)
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       setSchools(data);
-  //     });
-  // }, []);
-
   return (
-    <div>
+    <div className="flex flex-col min-h-screen">
       <Nav />
-      <Routes>
-        <Route path="/" element={<LandingPage />} />
-        <Route path="/schools" element={<SchoolListing />} />
-        <Route path="/schools/:name" element={<SchoolDetails />} />
-        <Route path="/find" element={<SchoolSearch />} />
-      </Routes>
+      <div className="flex-grow">
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/schools" element={<SchoolListing />} />
+          <Route path="/schools/:name" element={<SchoolDetails />} />
+          <Route path="/find" element={<SchoolSearch />} />
+        </Routes>
+      </div>
       <Footer />
     </div>
   );
