@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const SchoolSearch = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -40,15 +41,17 @@ const SchoolSearch = () => {
         ) : (
           <ul>
             {filteredData.map((school, id) => (
-              <li
-                key={id}
-                className="rounded-lg border-2 border-black bg-ghost-white font-semibold p-4"
-              >
-                <h2>{school.school}</h2>
-                <p>Principal: {school.principal}</p>
-                <p>Grade Level: {school.school_level_}</p>
-                <p>Overall Rating: {school._overall_grade}</p>
-              </li>
+              <Link to={`/schools/${school.school}`}>
+                <li
+                  key={id}
+                  className="rounded-lg border-2 border-black bg-ghost-white font-semibold p-4"
+                >
+                  <h2>{school.school}</h2>
+                  <p>Principal: {school.principal}</p>
+                  <p>Grade Level: {school.school_level_}</p>
+                  <p>Overall Rating: {school._overall_grade}</p>
+                </li>
+              </Link>
             ))}
           </ul>
         )}
