@@ -36,8 +36,14 @@ export function schoolRanking(schools, selectedSchool) {
   return `${selectedSchool.school} is Ranked ${schoolPlacement + 1} out of ${
     schoolRankingLeastToGreatest.length
   } for ${
-    selectedSchool.school_level_
-  } Schools in Overall Score for ${districtToBorough(
-    selectedSchool.district
-  )}.`;
+    selectedSchool.school_level_ === "High School"
+      ? `High Schools in Overall Score for ${districtToBorough(
+          selectedSchool.district
+        )}`
+      : `${
+          selectedSchool.school_level_
+        } Schools in Overall Score for ${districtToBorough(
+          selectedSchool.district
+        )}`
+  }`;
 }
