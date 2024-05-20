@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Nav = () => {
   return (
-    <div className="border border-black border-opacity-100 mb-4 bg-light-blue">
+    <div className="border border-black border-opacity-100 bg-light-blue">
       <div className="flex justify-center items-center">
         <h1 className="text-black text-center py-6 text-4xl">
           Big Apple Schools!

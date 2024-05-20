@@ -12,18 +12,19 @@
     background-image: url('https://res.cloudinary.com/dhexjuuzd/image/upload/v1716012287/images_7_f1olxk.jpg');
     background-position: center;
     color: black;
-    padding: 100px 60px;
+    padding: 140px 0px;
     min-width: 100vw;
   }
   
   .heroTitle {
     font-size: 48px;
-    margin: 0 0 20px;
+    /* margin: 0 0 20px; */
+    margin-top: 10px;
   }
   
   .heroSubtitle {
     font-size: 24px;
-    margin: 0 0 40px;
+    margin-bottom: 60px;
     color: #000000; /* Adjust color for better contrast */
 }
   
@@ -37,37 +38,38 @@
     cursor: pointer;
   }
   
-  .features {
+  /* .features {
     display: flex;
-    justify-content: center; 
-    align-items: center; 
-    padding: 80px;
-    min-width: 100vw;
+    justify-content: space-between;  */
+    /* align-items: center;  */
+    /* padding: 80px;
+    margin-left: 480px;
+    min-width: 60vw;
     vertical-align: middle;
-  }
+  } */
   
-  .feature {
+  /* .feature {
     max-width: 480px;
     text-align: center;
     align-items: center;
     margin: 10px 0px 10px 0px; 
-    /* padding: 100px; */
-  }
+    padding: 100px;
+  } */
   
-  .featureTitle {
+  /* .featureTitle {
     font-size: 20px;
     margin: 10px 10px 10px;
     text-align: center;
     border: solid black 1px;
-    /* padding: 0px; */
-  }
+    padding: 0px;
+  } */
   
-  .featureDescription {
+  /* .featureDescription {
     font-size: 16px;
     text-align: center; 
   }
   
-  
+   */
   
   .callToAction {
     background-color: #f4f4f4;
