@@ -20,9 +20,7 @@ const Nav = () => {
       <div>
         <ul className="flex flex-row place-content-evenly text-xl font-bold text-paynes-gray">
           <Link to="/">
-            <li className="list-none hover:text-black hover:underline">
-              Landing
-            </li>
+            <li className="list-none hover:text-black hover:underline">Home</li>
           </Link>
           <Link to="/schools">
             <li className="list-none hover:text-black hover:underline">
