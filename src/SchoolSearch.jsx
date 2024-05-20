@@ -27,17 +27,19 @@ const SchoolSearch = () => {
 
   return (
     <div className="search-container p-4">
-      <h1 className="text-center ">Find a Individual School</h1>
+      <h1 className="text-center mb-8 text-lg">Find a Individual School</h1>
+      <div className="flex justify-center items-center">
       <input
         type="text"
         value={searchTerm}
         onChange={handleSearchChange}
-        placeholder="Search for a School..."
-        className="border border-gray-300 p-2 w-full mb-4"
+        placeholder="Search ..."
+        className="border border-black border-2 rounded-lg p-2 mb-4 w-full max-w-md"
       />
+       </div>
       <div>
         {!searchTerm ? (
-          <h2>Please Enter a School ...</h2>
+          <h2 className="text-center">Please Enter a School ...</h2>
         ) : (
           <ul>
             {filteredData.map((school, id) => (

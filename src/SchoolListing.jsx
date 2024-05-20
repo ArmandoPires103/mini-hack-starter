@@ -23,8 +23,6 @@ const SchoolListing = () => {
     setSchoolCounter(selectedSchools.length);
   }, [selectedSchools]);
 
-  console.log(selectedSchools);
-
   return (
     <div className="mb-24">
       <div className="mx-4">

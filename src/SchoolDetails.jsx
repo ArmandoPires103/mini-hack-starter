@@ -33,7 +33,6 @@ const SchoolDetails = () => {
     };
     fetchSchool();
   }, [name]);
-  console.log(singleSchool);
 
   useEffect(() => {
     fetch(`https://data.cityofnewyork.us/resource/ffnc-f3aa.json?$limit=1500`)
@@ -56,7 +55,6 @@ const SchoolDetails = () => {
   const filteredSchools = singleSchool.filter(
     (school) => school.school === decodedName
   );
-  console.log(filteredSchools);
 
   if (filteredSchools.length === 0) {
     return <div>School not found</div>;
