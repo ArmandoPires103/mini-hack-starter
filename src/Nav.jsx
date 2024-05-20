@@ -6,7 +6,7 @@ const Nav = () => {
   return (
     <div className="border border-black border-opacity-100 bg-light-blue">
       <div className="flex justify-center items-center">
-        <h1 className="text-black text-center py-6 text-4xl">
+        <h1 className="text-black text-center py-6 text-4xl text-shadow">
           Big Apple Schools!
         </h1>
         <Apple

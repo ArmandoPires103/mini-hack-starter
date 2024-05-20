@@ -27,7 +27,7 @@ const SchoolSearch = () => {
 
   return (
     <div className="search-container p-4">
-      <h1 className="text-center mb-8 text-lg">Find a Individual School</h1>
+      <h1 className="text-center mb-8 text-2xl text-shadow-sm">Find a Single School</h1>
       <div className="flex justify-center items-center">
       <input
         type="text"
