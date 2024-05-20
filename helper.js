@@ -17,3 +17,27 @@ export function districtToBorough(district) {
     return "Staten Island";
   }
 }
+
+export function schoolRanking(schools, selectedSchool) {
+  const filteredSchools = schools.filter(
+    (school) =>
+      school.school_level_ === selectedSchool.school_level_ &&
+      districtToBorough(school.district) ===
+        districtToBorough(selectedSchool.district)
+  );
+  const schoolRankingLeastToGreatest = filteredSchools
+    .map((school) => school)
+    .sort((a, b) => b._overall_score - a._overall_score);
+
+  const schoolPlacement = schoolRankingLeastToGreatest.findIndex(
+    (school) => school.school === selectedSchool.school
+  );
+
+  return `${selectedSchool.school} is Ranked ${schoolPlacement + 1} out of ${
+    schoolRankingLeastToGreatest.length
+  } for ${
+    selectedSchool.school_level_
+  } Schools in Overall Score for ${districtToBorough(
+    selectedSchool.district
+  )}.`;
+}
