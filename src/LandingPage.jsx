@@ -18,7 +18,7 @@ const LandingPage = () => {
       <div className="w-screen">
         <div className="grid grid-cols-3 gap-8 text-center items-center">
           <div className="p-24 min-w-52">
-            <h2 className="text-2xl font-semibold mb-2">Filter the Borough</h2>
+            <h2 className="text-2xl font-semibold mb-2">Filter The Borough</h2>
             <p>Find the school in your preferred borough.</p>
           </div>
           <div>
