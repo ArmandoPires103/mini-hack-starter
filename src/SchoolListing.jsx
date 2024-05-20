@@ -25,7 +25,7 @@ const SchoolListing = () => {
 
   return (
     <div className="mb-24">
-      <div className="mx-4">
+      <div className="mx-4 mt-4">
         <h1 className="text-xl font-semibold">
           {/* {selectedSchools.length > 0 &&
             `${districtToBorough(
